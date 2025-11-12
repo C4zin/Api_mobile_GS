@@ -13,12 +13,11 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:21-jdk
 WORKDIR /app
 
-# Copia o JAR gerado da etapa anterior
-COPY --from=build /app/target/equipamentos-api.jar app.jar
+# Copia o JAR gerado da etapa anterior (nome dinâmico)
+COPY --from=build /app/target/*.jar app.jar
 
 # Define a porta padrão usada pelo Spring Boot
 EXPOSE 8080
 
 # Comando para iniciar a aplicação
 ENTRYPOINT ["java", "-jar", "app.jar"]
-#as
