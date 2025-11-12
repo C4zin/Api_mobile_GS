@@ -8,7 +8,7 @@ COPY src ./src
 
 # Compila o projeto e gera o JAR final
 RUN mvn clean package -DskipTests
-
+#weqweq
 # Etapa 2: Imagem final mais leve só com o JAR
 FROM eclipse-temurin:21-jdk
 WORKDIR /app
